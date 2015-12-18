@@ -100,7 +100,3 @@ def call(repo, verbose, target, payload):
     r = requests.post(url, data=json.dumps(data), headers=headers)
     click.echo('<<<RESPONSE:')
     click.echo(pygmentize(r.json()))
-
-
-if __name__ == '__main__':
-    cli()
