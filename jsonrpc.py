@@ -40,6 +40,7 @@ def listkeys(repo, object_type):
 @click.option('--repo-file', envvar='REPO_FILE', default='./jsonrpcrepo.json', help='Path to repository')
 @click.pass_context
 def cli(ctx, repo_file):
+    """Make JSON-RPC Call using targets and payloads kept in local repository"""
     ctx.obj = Repo(repo_file)
 
 
