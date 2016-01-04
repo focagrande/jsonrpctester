@@ -1,48 +1,49 @@
 {
-    "payloads": {
-        "customer_send_sap": {
-            "method": "customer_send_sap",
-            "params": {
-                "crm_id": 205091
-            }
-        },
-        "test_jsonrpc": {
-            "method": "test_jsonrpc",
-            "params": {
-                "instr": "HubbaBubba"
-            }
-        },
-        "multiply": {
-            "method": "multiply",
-            "params": {
-                "a": 5, "b": 5
-            }
-        }
-    },
-    "targets": {
-        "u8_int": {
-            "headers": {
-                "Content-Type": "application/json-rpc",
-                "Host": "u8.raspcrm.onetapi.pl",
-                "X-Onet-App": "u7ifctest.zumicrm.onetapi.pl"
-            },
-            "url": "http://rtxint.c1r1.onet/CrmMW/json.ashx"
-        },
-        "u8_prod": {
-            "headers": {
-                "Content-Type": "application/json-rpc",
-                "Host": "u8.raspcrm.onetapi.pl",
-                "X-Onet-App": "u7ifctest.zumicrm.onetapi.pl"
-            },
-            "url": "http://rtx.c1r1.onet/CrmMW/json.ashx"
-        },
-        "zapi_int": {
-            "headers": {
-                "Content-Type": "application/json-rpc",
-                "Host": "u7ifctest.zumicrm.onetapi.pl",
-                "X-Onet-App": "u7.zumicrm.onetapi.pl"
-            },
-            "url": "http://rtxint.c1r1.onet"
-        }
+  "payloads": {
+    "multiply": {
+      "params": {
+        "a": 6, 
+        "b": 8
+      }, 
+      "method": "multiply"
+    }, 
+    "customer_send_sap": {
+      "params": {
+        "crm_id": 205091
+      }, 
+      "method": "customer_send_sap"
+    }, 
+    "test_jsonrpc": {
+      "params": {
+        "instr": "HubbaBubba"
+      }, 
+      "method": "test_jsonrpc"
     }
+  }, 
+  "targets": {
+    "zapi_int": {
+      "url": "http://rtxint.c1r1.onet", 
+      "headers": {
+        "X-Onet-App": "u7.zumicrm.onetapi.pl", 
+        "Host": "u7ifctest.zumicrm.onetapi.pl", 
+        "Content-Type": "application/json-rpc"
+      }
+    }, 
+    "u8_int": {
+      "url": "http://rtxint.c1r1.onet/CrmMW/json.ashx", 
+      "headers": {
+        "X-Onet-App": "u7ifctest.zumicrm.onetapi.pl", 
+        "Host": "u8.raspcrm.onetapi.pl", 
+        "Content-Type": "application/json-rpc"
+      }
+    }, 
+    "u8_prod": {
+      "url": "http://rtx.c1r1.onet/CrmMW/json.ashx", 
+      "headers": {
+        "X-Onet-App": "u7ifctest.zumicrm.onetapi.pl", 
+        "Host": "u8.raspcrm.onetapi.pl", 
+        "Content-Type": "application/json-rpc"
+      }
+    }
+  }
 }

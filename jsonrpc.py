@@ -62,6 +62,27 @@ def payloads(repo):
 @click.argument('object-type', type=click.Choice(['targets', 'payloads']), required=True)
 @click.argument('object-name', required=True)
 @click.pass_obj
+def edit(repo, object_type, object_name):
+    """Edit definiton of target or payload"""
+
+    try:
+        data = repo.repo[object_type][object_name]
+    except KeyError:
+        click.echo('{} not found in {}'.format(object_name, object_type))
+    else:
+        data_str = click.edit(text=json.dumps(data, indent=2), require_save=True)
+
+    if data_str:
+        repo.repo[object_type][object_name] = json.loads(data_str)
+        
+        with open(repo.repo_file, 'w') as f:
+            f.write(json.dumps(repo.repo, indent=2))
+
+
+@cli.command()
+@click.argument('object-type', type=click.Choice(['targets', 'payloads']), required=True)
+@click.argument('object-name', required=True)
+@click.pass_obj
 def show(repo, object_type, object_name):
     """Display definiton of target or payload"""
 
